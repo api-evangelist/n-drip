@@ -1,17 +1,41 @@
 aid: n-drip
 name: N-Drip
-description: 'N-Drip is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'N-Drip is an Israeli agritech manufacturer of gravity-powered micro-irrigation
+  systems, led by Prof. Uri Shani, Israel''s former Water Commissioner. Its patented
+  drip system operates on gravity alone at under 0.87 PSI / 0.06 BAR, requiring no
+  pumping station and no pressure-based filtration, and is positioned as a direct
+  replacement for flood irrigation — which still accounts for roughly 85 percent of
+  the world''s irrigated agriculture and wastes an estimated 70 percent of the water
+  it uses. Alongside the hardware the company ships N-Drip Connect, a sensor-and-app
+  decision-support platform that measures root-zone water potential and available
+  nitrogen, layers NDVI satellite imagery over the field, and issues irrigation and
+  fertilization recommendations to growers. N-Drip technology is deployed in ten countries
+  and five US states across 25 crop types including rice, corn, soybeans, potatoes,
+  sugar cane, alfalfa and cotton, with a US production hub in Yuma, Arizona. N-Drip
+  publishes no public developer program, API documentation, SDK or machine-readable
+  API contract: N-Drip Connect is delivered strictly as a closed web and mobile application.'
+image: https://ndrip.com/wp-content/uploads/2021/05/ndriplogo.png
 url: https://raw.githubusercontent.com/api-evangelist/n-drip/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Agriculture
+- AgTech
+- Irrigation
+- Water
+- Water Conservation
+- Sustainability
+- Climate
+- Precision Agriculture
+- Sensors
+- IoT
+- Israel
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +43,70 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/n-drip-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://ndrip.com/
+- type: Product
+  url: https://ndrip.com/the-ndrip-solution/
+- type: Application
+  url: https://ndrip.com/ndrip-connect/
+- type: About
+  url: https://ndrip.com/about-us/
+- type: FAQ
+  url: https://ndrip.com/faq/
+- type: Support
+  url: https://ndrip.com/contact/
+- type: Blog
+  url: https://ndrip.com/news-and-events/
+- type: Media
+  url: https://ndrip.com/media/
+- type: Login
+  url: https://app.ndrip.com/
+- type: TermsOfService
+  url: https://ndrip.com/wp-content/themes/ndrip/includes/images/terms.pdf
+- type: PrivacyPolicy
+  url: https://ndrip.com/wp-content/themes/ndrip/includes/images/privacy.pdf
+- type: CookiePolicy
+  url: https://ndrip.com/wp-content/themes/ndrip/includes/images/cookies.pdf
+- type: Accessibility
+  url: https://ndrip.com/accessibility-statement/
+- type: Patents
+  url: https://ndrip.com/patents/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/n-drip-gravity-micro-irrigation
+- type: AndroidApp
+  url: https://play.google.com/store/apps/details?id=com.sciroot
+- type: Plans
+  url: plans/n-drip-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/n-drip-rate-limits.yml
+- type: LLMsTxt
+  url: llms/n-drip-llms.txt
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    N-Drip ships irrigation hardware plus the closed N-Drip Connect web and mobile app, and
+    operates no developer program at all: ndrip.com is a 16-page WordPress marketing site that
+    404s on /openapi.json, /api, /developers and every /.well-known path, and the only backend
+    behind the app is an undocumented private AWS API Gateway
+    (geffe6u3ma.execute-api.eu-west-1.amazonaws.com) found in the app bundle that answers an
+    anonymous request with 403 "Missing Authentication Token".
+  evidence:
+  - url: https://ndrip.com/openapi.json
+    status: 404
+  - url: https://ndrip.com/developers
+    status: 404
+  - url: https://ndrip.com/.well-known/api-catalog
+    status: 404
+  - url: https://geffe6u3ma.execute-api.eu-west-1.amazonaws.com/prod/
+    status: 403
+  - url: https://app.ndrip.com/.well-known/agent-card.json
+    status: 200
+  checked: '2026-08-26'

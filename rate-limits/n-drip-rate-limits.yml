@@ -1,0 +1,20 @@
+generated: '2026-08-26'
+method: searched
+source: https://ndrip.com/
+limit_count: 0
+rate_limits: []
+headers: []
+note: >-
+  No rate limits are documented because N-Drip publishes no API and no developer documentation
+  to document them in. Contract discovery (STEP 0b) found no OpenAPI, GraphQL, MCP or A2A
+  surface on any N-Drip host. The only HTTP backend the company operates is the private AWS
+  API Gateway that serves the N-Drip Connect web and mobile app
+  (https://geffe6u3ma.execute-api.eu-west-1.amazonaws.com/prod/, discovered in the app's own
+  JS bundle); it is undocumented, unadvertised, and returns HTTP 403 {"message":"Missing
+  Authentication Token"} to an anonymous request, so it publishes no rate-limit signal either.
+  An honest zero.
+evidence:
+- url: https://ndrip.com/openapi.json
+  status: 404
+- url: https://geffe6u3ma.execute-api.eu-west-1.amazonaws.com/prod/
+  status: 403

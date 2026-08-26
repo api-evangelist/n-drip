@@ -1,0 +1,82 @@
+generated: '2026-08-26'
+method: probed
+source: live GET probes of /.well-known/* on every N-Drip host
+note: >-
+  No /.well-known document is served by N-Drip on any host. ndrip.com is a WordPress site
+  that returns a real 404 for every probed path. app.ndrip.com (the N-Drip Connect web
+  application) is a single-page app on S3/CloudFront whose catch-all rewrite answers HTTP 200
+  with the identical 4,863-byte HTML shell for EVERY path — including paths that cannot exist
+  — so none of its 200s is a document. Those rows are recorded with a soft_404 flag and count
+  as misses. No WellKnown or SecurityTxt pointer is wired into apis.yml, because nothing was
+  actually served.
+hosts:
+- host: ndrip.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /security.txt
+    status: 404
+    file: null
+- host: app.ndrip.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    soft_404: true
+    content_type: text/html
+    note: SPA catch-all shell, not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    soft_404: true
+    content_type: text/html
+    note: SPA catch-all shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    soft_404: true
+    content_type: text/html
+    note: SPA catch-all shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    soft_404: true
+    content_type: text/html
+    note: SPA catch-all shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    soft_404: true
+    content_type: text/html
+    note: SPA catch-all shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    soft_404: true
+    content_type: text/html
+    note: SPA catch-all shell, not a document — rejected as an A2A agent card
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    soft_404: true
+    content_type: text/html
+    note: SPA catch-all shell, not a document — rejected as an A2A agent card

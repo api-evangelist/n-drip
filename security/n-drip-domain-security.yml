@@ -1,0 +1,25 @@
+generated: '2026-08-26'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: ndrip.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 11 11:45:46 2026 GMT
+  hsts: false
+- host: app.ndrip.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 21 23:59:59 2026 GMT
+  hsts: false
+  note: N-Drip Connect web application (S3 + CloudFront origin); added by the enrichment pass because
+    apis[] is empty so the automated probe did not reach it.
+domains:
+- domain: ndrip.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+note: ndrip.com serves no HSTS header and publishes no CAA record or DNSSEC; SPF and DMARC are present
+  but DMARC policy is p=none (monitor only, no enforcement). Both company hosts negotiate TLS 1.3.

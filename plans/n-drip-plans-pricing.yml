@@ -1,0 +1,20 @@
+generated: '2026-08-26'
+method: searched
+source: https://ndrip.com/
+plan_count: 0
+plans: []
+note: >-
+  N-Drip publishes no pricing or plans page of any kind. https://ndrip.com/pricing/ returns
+  HTTP 404 and no pricing link appears in the site navigation, footer, or the Yoast page
+  sitemap (16 pages, none commercial). N-Drip sells gravity micro-irrigation hardware and the
+  N-Drip Connect sensor/decision-support subscription through direct agronomic sales — every
+  commercial path on the site routes to https://ndrip.com/contact/. There is no self-serve
+  signup, no published tier, and no API product to price. This is an honest zero, not an
+  unchecked field.
+evidence:
+- url: https://ndrip.com/pricing/
+  status: 404
+- url: https://ndrip.com/contact/
+  status: 200
+- url: https://ndrip.com/page-sitemap.xml
+  status: 200
