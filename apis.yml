@@ -14,6 +14,17 @@ description: 'N-Drip is an Israeli agritech manufacturer of gravity-powered micr
   sugar cane, alfalfa and cotton, with a US production hub in Yuma, Arizona. N-Drip
   publishes no public developer program, API documentation, SDK or machine-readable
   API contract: N-Drip Connect is delivered strictly as a closed web and mobile application.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://ndrip.com/wp-content/uploads/2021/05/ndriplogo.png
 url: https://raw.githubusercontent.com/api-evangelist/n-drip/refs/heads/main/apis.yml
 x-type: company
